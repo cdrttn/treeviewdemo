@@ -298,7 +298,7 @@ int main()
 	noecho();
 	keypad(stdscr, TRUE);
 
-	tree_window = newwin(25, 80, 4, 4);
+	tree_window = newwin(25, 80, 0, 0);
 	mvwprintw(tree_window, 0, 0, "Path: ");
 	path_label = derwin(tree_window, 1, 45, 0, 6);
 	wprintw(path_label, "/");
@@ -307,6 +307,8 @@ int main()
 			"Navigation: UP and DOWN to move around menu.");
 	mvwprintw(tree_window, 20, 12,
 			"LEFT and RIGHT to ascend and descend.");
+	mvwprintw(tree_window, 21, 12,
+			"Type 'q' to quit.");
 
 	keypad(tree_window, TRUE);
 	view = tree_view_new(root, tree_window, 15, 40, 3, 0);	
